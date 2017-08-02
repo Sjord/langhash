@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "langhash",
+  "version": "0.0.1",
+  "description": "pwdhash alternative",
+  "permissions": [
+    "activeTab",
+    "declarativeContent"
+  ],
+  "browser_action": {
+    "default_title": "langhash"
+  },
+  "background": {
+    "scripts": ["dist/background.js"],
+    "persistent": false
+  }
+}
