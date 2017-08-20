@@ -1,16 +1,18 @@
 {
   "manifest_version": 2,
   "name": "langhash",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "pwdhash alternative",
   "permissions": [
     "activeTab"
   ],
   "browser_action": {
-    "default_title": "langhash"
+    "default_title": "langhash",
+    "default_popup": "dist/askpassword.html"
   },
-  "background": {
-    "scripts": ["dist/background.js"],
-    "persistent": false
+  "applications": {
+    "gecko": {
+      "id": "langhash@sjoerdlangkemper.nl"
+    }
   }
 }
