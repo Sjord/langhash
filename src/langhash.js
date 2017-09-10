@@ -7,7 +7,7 @@ function insertPassword(password) {
 }
 
 function derivePassword(masterPassword, domain, callback) {
-    pbkdf2.pbkdf2(masterPassword, domain, 100000, 16, 'sha512', (err, derivedKey) => {
+    pbkdf2.pbkdf2(masterPassword, domain, 135571, 16, 'sha512', (err, derivedKey) => {
         let password = ascii85.encode(derivedKey).toString();
         callback(password);
     });
