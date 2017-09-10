@@ -20,7 +20,8 @@ function getCurrentUrl(callback) {
     });
 }
 
-document.getElementById('button').addEventListener('click', function() {
+document.getElementById('form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
     let masterPassword = document.getElementById('password').value;
     getCurrentUrl(url => {
         let domain = tldjs.getDomain(url);
