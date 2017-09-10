@@ -14,5 +14,12 @@
     "gecko": {
       "id": "langhash@sjoerdlangkemper.nl"
     }
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L"
+      }
+    }
   }
 }
