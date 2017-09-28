@@ -6,9 +6,14 @@ function insertPassword(password) {
     chrome.tabs.executeScript({"code": `document.activeElement.value=${JSON.stringify(password)};`});
 }
 
+function keyToPassword(derivedKey) {
+    let password = ascii85.encode(derivedKey).toString();
+    return password.replace(/[&#<>]/g, '').substr(0, 16)
+}
+
 function derivePassword(masterPassword, domain, callback) {
-    pbkdf2.pbkdf2(masterPassword, domain, 135571, 16, 'sha512', (err, derivedKey) => {
-        let password = ascii85.encode(derivedKey).toString();
+    pbkdf2.pbkdf2(masterPassword, domain, 135571, 32, 'sha512', (err, derivedKey) => {
+        let password = keyToPassword(derivedKey);
         callback(password);
     });
 }
