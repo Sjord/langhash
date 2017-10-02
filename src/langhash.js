@@ -6,8 +6,23 @@ function insertPassword(password) {
     chrome.tabs.executeScript({"code": `document.activeElement.value=${JSON.stringify(password)};`});
 }
 
+function pick(range, seed) {
+    let index = seed % range.length;
+    return range[index];
+}
+
 function keyToPassword(derivedKey) {
-    let password = ascii85.encode(derivedKey).toString();
+    const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lower = "abcdefghijklmnopqrstuvwxyz";
+    const digits = "0123456789";
+    const special = "!$%()*+,-./:;=?@[]^_`{|}~";
+
+    let password = pick(upper, derivedKey[22])
+        + pick(lower, derivedKey[23])
+        + pick(digits, derivedKey[24])
+        + pick(digits, derivedKey[25])
+        + pick(special, derivedKey[26])
+        + ascii85.encode(derivedKey).toString();
     return password.replace(/[&#<>]/g, '').substr(0, 16)
 }
 
