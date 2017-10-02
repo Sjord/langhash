@@ -1,6 +1,6 @@
 {
   "name": "langhash",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "pwdhash alternative",
   "main": "index.js",
   "scripts": {
