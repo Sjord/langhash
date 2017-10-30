@@ -3,7 +3,7 @@ import tldjs from 'tldjs';
 import ascii85 from 'ascii85';
 
 function insertPassword(password) {
-    chrome.tabs.executeScript({"code": `document.activeElement.value=${JSON.stringify(password)};`});
+    chrome.tabs.executeScript({"code": `document.activeElement.value=${JSON.stringify(password)}; document.activeElement.dispatchEvent(new Event("change"));`});
 }
 
 function pick(range, seed) {
