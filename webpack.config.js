@@ -1,7 +1,11 @@
 module.exports = {
-    entry: './src/langhash.js',
+    entry: {
+        langhash: './src/langhash',
+        extension: './src/extension',
+        standalone: './src/standalone'
+    },
     output: {
-        filename: 'langhash.js',
+        filename: '[name].js',
         path: __dirname + '/dist'
     }
 };
