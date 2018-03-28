@@ -1,7 +1,7 @@
 import langhash from './langhash';
 
 function insertPassword(password) {
-    chrome.tabs.executeScript({"code": `document.activeElement.value=${JSON.stringify(password)}; document.activeElement.dispatchEvent(new Event("change"));`});
+    chrome.tabs.executeScript({"code": `document.activeElement.value=${JSON.stringify(password)}; document.activeElement.dispatchEvent(new Event("input")); document.activeElement.dispatchEvent(new Event("change"));`});
 }
 
 function getCurrentUrl(callback) {
