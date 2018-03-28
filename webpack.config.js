@@ -1,6 +1,5 @@
 module.exports = {
     entry: {
-        langhash: './src/langhash',
         extension: './src/extension',
         standalone: './src/standalone'
     },
